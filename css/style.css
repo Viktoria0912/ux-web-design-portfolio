@@ -243,20 +243,23 @@ section {
 .about-image-container {
     position: relative;
     width: 100%;
-    height: 450px;
-    perspective: 1000px;
+    height: auto;
+    text-align: center;
 }
 
 .personal-image {
-    position: absolute;
     width: 100%;
+    max-width: 350px;
     height: auto;
-    max-height: 350px;
-    object-fit: cover;
     border-radius: 10px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    transform-origin: center center;
     transition: all 0.5s ease-in-out;
+    margin: 0 auto;
+}
+
+.personal-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
 }
 
 .skills {
@@ -431,10 +434,6 @@ section {
         max-width: 400px;
         margin: 0 auto;
     }
-    
-    .about-image-container {
-        height: 400px;
-    }
 }
 
 @media (max-width: 768px) {
@@ -476,10 +475,6 @@ section {
     .projects-grid {
         grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     }
-    
-    .about-image-container {
-        height: 350px;
-    }
 }
 
 @media (max-width: 576px) {
@@ -497,9 +492,5 @@ section {
 
     .header-content {
         padding: 15px 0;
-    }
-    
-    .about-image-container {
-        height: 300px;
     }
 }
