@@ -147,17 +147,38 @@ p {
     padding: 20px 0;
 }
 
+/* Logo Styling */
 .logo a {
+    display: block;
+}
+
+.logo-text {
+    position: relative;
+    display: inline-block;
+}
+
+.logo-ux {
     font-family: var(--heading-font);
-    font-size: 1.8rem;
-    font-weight: 700;
+    font-size: 2.2rem;
+    font-weight: 800;
     color: var(--dark-color);
     text-transform: uppercase;
     letter-spacing: 1px;
+    display: inline-block;
 }
 
-.logo span {
-    margin-left: 8px;
+.logo-victoria {
+    font-family: var(--body-font);
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--accent-color);
+    letter-spacing: 2px;
+    text-transform: lowercase;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
 }
 
 .main-nav ul {
@@ -573,6 +594,14 @@ section {
     
     .image-frame {
         padding-bottom: 100%;
+    }
+    
+    .logo-ux {
+        font-size: 1.8rem;
+    }
+    
+    .logo-victoria {
+        font-size: 1rem;
     }
 }
 
