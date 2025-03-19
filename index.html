@@ -1013,53 +1013,59 @@ https://claude.site/artifacts/fc129e3b-4e66-4362-aaf2-7a246404828e        .btn:h
             </div>
         </div>
     </footer>
-
-    <script>
-        // Simple JavaScript for the mobile menu toggle
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuBtn = document.querySelector('.menu-btn');
-            const navLinks = document.querySelector('.nav-links');
-            
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // 🔹 Mobile menu toggle
+        const menuBtn = document.querySelector('.menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if (menuBtn && navLinks) {
             menuBtn.addEventListener('click', function() {
                 navLinks.classList.toggle('active');
             });
+        }
 
-            // Add scrolled class to header on scroll
-            window.addEventListener('scroll', function() {
-                const header = document.querySelector('header');
+        // 🔹 Add "scrolled" class to header on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (header) {
                 if (window.scrollY > 50) {
                     header.classList.add('scrolled');
                 } else {
                     header.classList.remove('scrolled');
                 }
-            });
+            }
+        });
 
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
+        // 🔹 Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+
+                // Close menu after clicking a link (only if menu exists)
+                if (navLinks) {
                     navLinks.classList.remove('active');
-                    
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-                    
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
+                }
             });
-            
-            // Ensure text banner animation works by manually animating if needed
-            const bannerContent = document.querySelector('.banner-scroll-content');
-            const bannerDuplicate = document.querySelector('.banner-scroll-duplicate');
-            
-            // Check if CSS animation is supported
+        });
+
+        // 🔹 Ensure text banner animation works (fallback for unsupported CSS animations)
+        const bannerContent = document.querySelector('.banner-scroll-content');
+        const bannerDuplicate = document.querySelector('.banner-scroll-duplicate');
+
+        if (bannerContent && bannerDuplicate) {
             if (!CSS.supports('animation', 'bannerScroll 20s linear infinite')) {
                 console.log('CSS animations not supported, using JS fallback');
-                // Fallback to JavaScript animation if CSS animation is not supported
                 let position = 100;
                 setInterval(() => {
                     position -= 0.5;
@@ -1068,23 +1074,6 @@ https://claude.site/artifacts/fc129e3b-4e66-4362-aaf2-7a246404828e        .btn:h
                     bannerDuplicate.style.transform = `translateX(${position + 100}%)`;
                 }, 50);
             }
-        });
-    </document.addEventListener("DOMContentLoaded", function () {
-        // Ensure text banner animation works by manually animating if needed
-        const bannerContent = document.querySelector('.banner-scroll-content');
-        const bannerDuplicate = document.querySelector('.banner-scroll-duplicate');
-
-        // Check if CSS animation is supported
-        if (!CSS.supports('animation', 'bannerScroll 20s linear infinite')) {
-            console.log('CSS animations not supported, using JS fallback');
-            // Fallback to JavaScript animation if CSS animation is not supported
-            let position = 100;
-            setInterval(() => {
-                position -= 0.5;
-                if (position <= -100) position = 100;
-                bannerContent.style.transform = `translateX(${position}%)`;
-                bannerDuplicate.style.transform = `translateX(${position + 100}%)`;
-            }, 50);
         }
 
         // 🔹 Text-Changing Animation
@@ -1105,8 +1094,7 @@ https://claude.site/artifacts/fc129e3b-4e66-4362-aaf2-7a246404828e        .btn:h
 
         setInterval(changeWord, 2000);
     });
-</script>>
-            
+</script>
 </body>
 </html>
 
