@@ -596,6 +596,7 @@ https://claude.site/artifacts/fc129e3b-4e66-4362-aaf2-7a246404828e        .btn:h
         }
     </style>
 </head>
+            
 <body>
     <!-- Header -->
     <header>
@@ -1068,7 +1069,44 @@ https://claude.site/artifacts/fc129e3b-4e66-4362-aaf2-7a246404828e        .btn:h
                 }, 50);
             }
         });
-    </script>
+    </document.addEventListener("DOMContentLoaded", function () {
+        // Ensure text banner animation works by manually animating if needed
+        const bannerContent = document.querySelector('.banner-scroll-content');
+        const bannerDuplicate = document.querySelector('.banner-scroll-duplicate');
+
+        // Check if CSS animation is supported
+        if (!CSS.supports('animation', 'bannerScroll 20s linear infinite')) {
+            console.log('CSS animations not supported, using JS fallback');
+            // Fallback to JavaScript animation if CSS animation is not supported
+            let position = 100;
+            setInterval(() => {
+                position -= 0.5;
+                if (position <= -100) position = 100;
+                bannerContent.style.transform = `translateX(${position}%)`;
+                bannerDuplicate.style.transform = `translateX(${position + 100}%)`;
+            }, 50);
+        }
+
+        // 🔹 Text-Changing Animation
+        const words = ["Impactful Design", "Business", "Innovation"];
+        let index = 0;
+
+        function changeWord() {
+            const textContainer = document.getElementById("text-container");
+            if (!textContainer) return;
+            textContainer.style.opacity = 0;
+
+            setTimeout(() => {
+                index = (index + 1) % words.length;
+                textContainer.textContent = words[index];
+                textContainer.style.opacity = 1;
+            }, 1000);
+        }
+
+        setInterval(changeWord, 2000);
+    });
+</script>>
+            
 </body>
 </html>
 
