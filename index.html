@@ -1017,24 +1017,76 @@ https://claude.site/artifacts/fc129e3b-4e66-4362-aaf2-7a246404828e        .btn:h
             </div>
         </div>
     </footer>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const words = ["Design", "Business", "Innovation"];
-        let index = 0;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website</title>
+    <link rel="stylesheet" href="styles.css"> <!-- your CSS file -->
+</head>
+<body>
 
-        function changeWord() {
-            const textContainer = document.getElementById("changing-word");
-            if (!textContainer) return;
-            textContainer.style.opacity = 0;
+    <!-- Your content here -->
+    <section class="hero">
+        <div class="hero-split-background">
+            <div class="hero-image-container">
+                <img src="your-image.png" alt="Viktoria - UX Designer" class="hero-image">
+            </div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Transform Your Vision into <span id="static-word" class="blue-text">Impactful</span>
+                    <span id="typed-text"></span>
+                </h1>
+                <p>Say Goodbye to Ordinary and Hello to Extraordinary. Let's Create Something That Speaks Your Story and Drives Your Success.</p>
+                <a href="#contact" class="btn">Work With Me <span style="margin-left: 5px; display: inline-block; transition: transform 0.3s;">→</span></a>
+            </div>
+        </div>
+    </section>
 
-            setTimeout(() => {
-                index = (index + 1) % words.length;
-                textContainer.textContent = words[index];
-                textContainer.style.opacity = 1;
-            }, 500);
-        }
+    <!-- JavaScript for the typing effect, placed just before the closing body tag -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const words = ["Design", "Business", "Innovation"];
+            let wordIndex = 0;
+            let letterIndex = 0;
+            let isDeleting = false;
+            const typedText = document.getElementById("typed-text");
+            const typingSpeed = 100;
+            const eraseSpeed = 50;
+            const pauseBetweenWords = 1000;
 
-        setInterval(changeWord, 2000);
-    });
-</script>
+            // Typewriter Effect Function
+            function typeEffect() {
+                const currentWord = words[wordIndex];
+                if (!isDeleting) {
+                    // Typing effect
+                    typedText.textContent = currentWord.substring(0, letterIndex + 1);
+                    letterIndex++;
+                    if (letterIndex === currentWord.length) {
+                        // Pause before deleting the word
+                        setTimeout(() => isDeleting = true, pauseBetweenWords);
+                    }
+                } else {
+                    // Deleting effect
+                    typedText.textContent = currentWord.substring(0, letterIndex - 1);
+                    letterIndex--;
+                    if (letterIndex === 0) {
+                        // Move to the next word
+                        isDeleting = false;
+                        wordIndex = (wordIndex + 1) % words.length;
+                    }
+                }
+
+                setTimeout(typeEffect, isDeleting ? eraseSpeed : typingSpeed);
+            }
+
+            // Start the typing effect
+            typeEffect();
+        });
+    </script>
+
+</body>
+</html>
 
