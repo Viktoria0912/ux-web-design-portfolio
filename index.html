@@ -1020,16 +1020,26 @@ h2:after {
         </div>
     </footer>
 
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Website</title>
-    <!-- Linking to your CSS file -->
-    <link rel="stylesheet" href="styles.css"> <!-- Make sure styles.css is the correct path -->
+    <link href="https://fonts.googleapis.com/css2?family=Merienda&display=swap" rel="stylesheet"> <!-- Add Merienda font -->
+    <link rel="stylesheet" href="styles.css"> <!-- your CSS file -->
+
+    <style>
+        /* Custom styles for the typed words */
+        .typed-word {
+            font-family: 'Merienda', cursive;
+            font-size: 2rem; /* Make the words smaller */
+            color: #333; /* Change color if necessary */
+        }
+    </style>
 </head>
 <body>
+
     <!-- Your content here -->
     <section class="hero">
         <div class="hero-split-background">
@@ -1051,7 +1061,7 @@ h2:after {
     <!-- JavaScript for the typing effect, placed just before the closing body tag -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            const words = ["Design", "Business", "Innovation"];
+            const words = ["Design", "Business", "Innovation"]; // Words to type
             let wordIndex = 0;
             let letterIndex = 0;
             let isDeleting = false;
@@ -1085,12 +1095,23 @@ h2:after {
                 setTimeout(typeEffect, isDeleting ? eraseSpeed : typingSpeed);
             }
 
+            // Add the class 'typed-word' to the words to style them
+            function styleTypedWords() {
+                const typedElement = document.getElementById("typed-text");
+                const currentWord = words[wordIndex];
+                if (currentWord) {
+                    typedElement.classList.add("typed-word"); // Apply class to the typed words
+                }
+            }
+
             // Start the typing effect
             typeEffect();
+            setInterval(styleTypedWords, 100); // Ensure the styling applies to each word as it's typed
         });
     </script>
 
 </body>
 </html>
+
 
      
