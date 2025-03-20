@@ -245,12 +245,13 @@ p {
     font-weight: 600;
 }
 
-.hero h1 {
-    font-size: 4rem;
-    font-weight: 800;
-    line-height: 1.1;
-    margin-bottom: 2rem;
-    text-transform: uppercase;
+/* Hero Section */
+.hero {
+    padding: 180px 0 100px;
+    background-color: var(--light-color);
+    display: flex;                /* Use flexbox for layout */
+    align-items: center;          /* Center content vertically */
+    justify-content: space-between; /* Put image and text on opposite sides */
 }
 
 .hero-description {
@@ -258,12 +259,26 @@ p {
     max-width: 100%;
     line-height: 1.5;
     margin: 2rem 0;
+    text-align: left; /* Optional, if you want text left-aligned */
+}
+
+/* Image Section (for making the image circular) */
+.hero-image-container {
+    flex: 1; /* Image will take up 50% of the space */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .hero-image {
-    position: relative;
+    width: 200px; /* Set width of the circular image */
+    height: 200px; /* Set height to be the same as width to keep it circular */
+    border-radius: 50%; /* Make it a circle */
+    object-fit: cover; /* Ensures image fills the circle */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Optional: Adds a shadow around the circle */
 }
 
+/* Keep existing styles for .image-stack and .image-frame if needed */
 .image-stack {
     position: relative;
     width: 100%;
@@ -279,6 +294,7 @@ p {
     border-radius: 8px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
+
 
 .image-frame img {
     position: absolute;
