@@ -645,3 +645,58 @@ section {
 @keyframes blink {
   50% { opacity: 0; }
 }
+
+/* Hero Section Styling for Image and Text */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 50px 20px;
+    background-color: var(--light-color);
+}
+
+.hero-image-container {
+    flex-shrink: 0; /* Prevent image from shrinking */
+    margin-right: 30px; /* Space between image and text */
+}
+
+.hero-image {
+    width: 150px; /* Adjust the size of the image */
+    height: 150px; /* Ensure it's a square */
+    object-fit: cover; /* Ensure the image covers the container */
+    border-radius: 50%; /* Make the image circular */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a little shadow to the image */
+}
+
+.container {
+    flex-grow: 1;
+    max-width: 800px; /* Limit the width of the text content */
+}
+
+.hero-content h1 {
+    font-size: 2.5rem; /* Adjust as needed */
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #7b68ee; /* Example button color */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: #5a4db2; /* Button hover color */
+}
+
+#typed-text {
+    color: #7b68ee; /* Color of the typed text */
+}
+
