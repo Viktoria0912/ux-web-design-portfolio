@@ -30,48 +30,49 @@ https://claude.site/artifacts/fc129e3b-4e66-4362-aaf2-7a246404828e        .btn:h
             --body-font: 'DM Sans', sans-serif;
         }
 
-        body {
-            background-color: var(--background-color);
-            color: var(--text-color);
-            line-height: 1.6;
-            overflow-x: hidden;
-            font-family: var(--body-font);
-        }
+      body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+    font-family: var(--body-font);
+}
 
-        /* Typography */
-        h1, h2, h3, h4, h5, h6 {
-            font-family: var(--heading-font);
-            font-weight: 600;
-            line-height: 1.2;
-            letter-spacing: -0.5px;
-        }
+/* Typography for headings */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading-font);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+}
+
+/* Specific style for h1 */
 h1 {
     font-size: 2.5rem;  /* Even smaller font size */
     margin-bottom: 1rem;
     font-weight: 700;
 }
 
+h2 {
+    font-size: 2.8rem;
+    margin-bottom: 2rem;
+    position: relative;
+}
 
+h2:after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: #7b68ee; /* Purple color similar to the screenshot */
+    margin-top: 15px;
+}
 
-        h2 {
-            font-size: 2.8rem;
-            margin-bottom: 2rem;
-            position: relative;
-        }
-        
-        h2:after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 3px;
-            background-color: #7b68ee; /* Purple color similar to the screenshot */
-            margin-top: 15px;
-        }
-        
-        .text-center h2:after {
-            margin-left: auto;
-            margin-right: auto;
-        }
+.text-center h2:after {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 
         p {
             margin-bottom: 1rem;
